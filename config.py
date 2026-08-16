@@ -1,8 +1,9 @@
-# WealthSpark V101 Configuration & API Keys
-# Enter your production API keys below. If left unconfigured, simulated fallback notices will be displayed.
-EMAIL_API_KEY = ""
-SMS_API_KEY = ""
-# config.py
+# config.py - Free Notification Settings
 
-EMAIL_API_KEY = "your_actual_email_api_key_here"
-SMS_API_KEY = "your_actual_sms_api_key_here"
+# 1. Gmail SMTP Settings (For Email Confirmations)
+GMAIL_USER = "your_email@gmail.com"
+GMAIL_APP_PASSWORD = "your_16_digit_app_password"  # Generated from your Google Account security settings
+
+# 2. Telegram Bot Settings (For Phone/SMS Alerts)
+TELEGRAM_BOT_TOKEN = "your_bot_token_from_botfather"
+TELEGRAM_CHAT_ID = "your_telegram_chat_id"
