@@ -16,7 +16,7 @@ if "lang" not in st.session_state:
 lang = st.sidebar.selectbox("🌐 Language", ["English", "Spanish"], index=["English", "Spanish"].index(st.session_state.lang))
 st.session_state.lang = lang
 
-# Theme Controller - Now featuring "Dark" mode
+# Theme Controller - Deep Dark Mode & Vibrant Themes
 themes = {
     "Light": {"bg": "#f8fafc", "text": "#1e293b", "card": "#ffffff", "primary": "#4f46e5"},
     "Sky Blue": {"bg": "#f0f9ff", "text": "#0f172a", "card": "#ffffff", "primary": "#0284c7"},
@@ -36,7 +36,7 @@ if "ai_privacy_enabled" not in st.session_state:
     st.session_state.ai_privacy_enabled = True
 st.session_state.ai_privacy_enabled = st.sidebar.checkbox("🔒 Enable AI Financial Data Processing", value=st.session_state.ai_privacy_enabled)
 
-# V102 Mobile-Optimized CSS Injection
+# V102 Mobile-Optimized CSS Injection & Dynamic Plot Legibility Fixes
 css_template = """
 <style>
 /* Base Theme Constraints */
@@ -63,9 +63,12 @@ div[data-testid="stMetric"]:hover {
     transform: translateY(-2px);
 }
 
-/* Ensure Chart Backgrounds Absorb Theme */
+/* Ensure Chart Backgrounds Absorb Theme & High-Contrast Gridlines */
 .js-plotly-plot .plotly .bg {
     background-color: transparent !important;
+}
+.xaxislayer-above, .yaxislayer-above {
+    color: __TEXT__ !important;
 }
 
 /* Fluid Primary Buttons */
