@@ -35,17 +35,17 @@ if "ai_privacy_enabled" not in st.session_state:
 st.session_state.ai_privacy_enabled = st.sidebar.checkbox("🔒 Enable AI Financial Data Processing", value=st.session_state.ai_privacy_enabled)
 
 # Enforce dynamic theme styling & hide native theme options / hamburger menu elements
-st.markdown(f"""
+css_template = """
 <style>
-.stApp {{
-    background-color: {th['bg']} !important;
-    color: {th['text']} !important;
-}}
-h1, h2, h3, h4, h5, h6, p, span, label, div {{
-    color: {th['text']} !important;
-}}
-div.stButton > button {{
-    background: {th['primary']};
+.stApp {
+    background-color: __BG__ !important;
+    color: __TEXT__ !important;
+}
+h1, h2, h3, h4, h5, h6, p, span, label, div {
+    color: __TEXT__ !important;
+}
+div.stButton > button {
+    background: __PRIMARY__;
     color: white;
     border-radius: 10px;
     border: none;
@@ -53,15 +53,22 @@ div.stButton > button {{
     font-weight: 600;
     width: 100%;
 }
-div.stButton > button:hover {{
+div.stButton > button:hover {
     opacity: 0.9;
     color: white;
 }
-#MainMenu {{visibility: visible;}}
-footer {{visibility: hidden;}}
-header {{visibility: visible;}}
+#MainMenu {visibility: visible;}
+footer {visibility: hidden;}
+header {visibility: visible;}
 </style>
-""", unsafe_allow_html=True)
+"""
+
+st.markdown(
+    css_template.replace("__BG__", th['bg'])
+                .replace("__TEXT__", th['text'])
+                .replace("__PRIMARY__", th['primary']),
+    unsafe_allow_html=True
+)
 
 st.sidebar.markdown(f"### {t('app_title', lang)}")
 st.sidebar.markdown(f"User: **{st.session_state.current_user}**")
