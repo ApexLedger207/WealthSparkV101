@@ -2,3 +2,7 @@
 # Enter your production API keys below. If left unconfigured, simulated fallback notices will be displayed.
 EMAIL_API_KEY = ""
 SMS_API_KEY = ""
+# config.py
+
+EMAIL_API_KEY = "your_actual_email_api_key_here"
+SMS_API_KEY = "your_actual_sms_api_key_here"
